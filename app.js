@@ -315,3 +315,55 @@ function plotFoldedCurve(phase, flux) {
   });
 }
 
+// ---------- FAQ ACCORDION LOGIC ----------
+document.addEventListener("DOMContentLoaded", () => {
+  const faqQuestions = document.querySelectorAll(".faq-question");
+  
+  faqQuestions.forEach(q => {
+    q.addEventListener("click", () => {
+      const item = q.parentElement;
+      const answer = item.querySelector(".faq-answer");
+      
+      // Close other active FAQ items
+      document.querySelectorAll(".faq-item").forEach(otherItem => {
+        if (otherItem !== item && otherItem.classList.contains("active")) {
+          otherItem.classList.remove("active");
+          otherItem.querySelector(".faq-answer").style.maxHeight = null;
+        }
+      });
+      
+      // Toggle current item
+      const isActive = item.classList.toggle("active");
+      if (isActive) {
+        answer.style.maxHeight = answer.scrollHeight + "px";
+      } else {
+        answer.style.maxHeight = null;
+      }
+    });
+  });
+});
+
+// ---------- MODAL CONTROLLERS ----------
+function openModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.remove("hidden");
+    document.body.style.overflow = "hidden"; // Disable scroll when modal is active
+  }
+}
+
+function closeModal(modalId) {
+  const modal = document.getElementById(modalId);
+  if (modal) {
+    modal.classList.add("hidden");
+    document.body.style.overflow = ""; // Re-enable scroll
+  }
+}
+
+function closeModalOnOverlay(event, modalId) {
+  if (event.target.id === modalId) {
+    closeModal(modalId);
+  }
+}
+
+

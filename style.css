@@ -219,7 +219,7 @@ canvas {
 
 /* ---------- UTILS ---------- */
 .hidden {
-  display: none;
+  display: none !important;
 }
 #stars-back, #stars-mid, #stars-front {
   position: fixed;
@@ -364,3 +364,226 @@ button:active {
   transform: translateY(0);
   box-shadow: 0 4px 15px rgba(93,220,255,0.25);
 }
+
+/* ---------- FAQ SECTION ---------- */
+.faq-section {
+  max-width: 900px;
+  margin: 5rem auto 3rem;
+  padding: 0 1rem;
+}
+
+.section-title {
+  text-align: center;
+  font-size: 1.8rem;
+  color: #5ddcff;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  margin-bottom: 2rem;
+  text-shadow: 0 0 15px rgba(93,220,255,0.3);
+}
+
+.faq-item {
+  background: rgba(10, 18, 40, 0.4);
+  border: 1px solid rgba(93, 220, 255, 0.15);
+  border-radius: 12px;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.faq-item:hover {
+  border-color: rgba(93, 220, 255, 0.4);
+  box-shadow: 0 0 15px rgba(93, 220, 255, 0.1);
+}
+
+.faq-question {
+  padding: 1.2rem 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  font-weight: 600;
+  font-size: 1.1rem;
+  color: #e6f0ff;
+  user-select: none;
+}
+
+.faq-arrow {
+  width: 10px;
+  height: 10px;
+  border-right: 2px solid #5ddcff;
+  border-bottom: 2px solid #5ddcff;
+  transform: rotate(45deg);
+  transition: transform 0.3s ease;
+  margin-right: 0.5rem;
+}
+
+.faq-item.active .faq-arrow {
+  transform: rotate(-135deg);
+}
+
+.faq-answer {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.3s ease-out, padding 0.3s ease;
+  padding: 0 1.5rem;
+  font-size: 0.95rem;
+  line-height: 1.6;
+  color: #b7c9e6;
+  border-top: 1px solid transparent;
+}
+
+.faq-item.active .faq-answer {
+  padding: 1.2rem 1.5rem;
+  border-top: 1px solid rgba(93, 220, 255, 0.1);
+}
+
+/* ---------- FOOTER ---------- */
+.footer {
+  text-align: center;
+  margin-top: 5rem;
+  padding: 3rem 0;
+  border-top: 1px solid rgba(93, 220, 255, 0.1);
+}
+
+.footer-links {
+  margin-bottom: 1.5rem;
+}
+
+.footer-links a {
+  color: #9fb4d8;
+  text-decoration: none;
+  font-size: 0.9rem;
+  transition: color 0.2s ease, text-shadow 0.2s ease;
+}
+
+.footer-links a:hover {
+  color: #5ddcff;
+  text-shadow: 0 0 10px rgba(93,220,255,0.4);
+}
+
+.footer-links .separator {
+  color: rgba(93, 220, 255, 0.2);
+  margin: 0 1rem;
+  font-size: 0.9rem;
+}
+
+.social-icons {
+  display: flex;
+  justify-content: center;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.social-icons a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #9fb4d8;
+  transition: color 0.3s ease, transform 0.2s ease;
+}
+
+.social-icons svg {
+  fill: currentColor;
+  transition: filter 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #5ddcff;
+  transform: translateY(-2px);
+}
+
+.social-icons a:hover svg {
+  filter: drop-shadow(0 0 8px rgba(93, 220, 255, 0.8));
+}
+
+.copyright {
+  font-size: 0.8rem;
+  color: #657595;
+  margin: 0;
+}
+
+/* ---------- MODALS ---------- */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(2, 4, 10, 0.85);
+  backdrop-filter: blur(8px);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  opacity: 1;
+  transition: opacity 0.3s ease;
+}
+
+.modal-content {
+  background: rgba(12, 20, 45, 0.95);
+  border: 1px solid rgba(93, 220, 255, 0.2);
+  border-radius: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.8), inset 0 0 0 1px rgba(255, 255, 255, 0.05);
+  animation: modalSlide 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+}
+
+@keyframes modalSlide {
+  from {
+    transform: translateY(20px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.modal-header {
+  padding: 1.5rem 2rem;
+  border-bottom: 1px solid rgba(93, 220, 255, 0.1);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.modal-header h2 {
+  margin: 0;
+  font-size: 1.4rem;
+  color: #5ddcff;
+}
+
+.close-btn {
+  background: transparent !important;
+  border: none !important;
+  color: #9fb4d8 !important;
+  font-size: 2rem !important;
+  cursor: pointer !important;
+  padding: 0 !important;
+  line-height: 1 !important;
+  transition: color 0.2s ease !important;
+  box-shadow: none !important;
+}
+
+.close-btn:hover {
+  color: #ff6b6b !important;
+  transform: none !important;
+}
+
+.modal-body {
+  padding: 2rem;
+  color: #b7c9e6;
+  line-height: 1.7;
+}
+
+.modal-body h3 {
+  color: #e6f0ff;
+  font-size: 1.1rem;
+  margin-top: 1.5rem;
+}
+
+.modal-body p {
+  margin-bottom: 1rem;
+}
+

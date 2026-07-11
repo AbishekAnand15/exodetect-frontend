@@ -70,6 +70,112 @@
         <canvas id="foldedcurve"></canvas>
       </div>
 
+      <!-- 🔍 FAQ Section -->
+      <section class="faq-section">
+        <h2 class="section-title">Frequently Asked Questions</h2>
+        
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What is a TIC ID?</span>
+            <span class="faq-arrow"></span>
+          </div>
+          <div class="faq-answer">
+            <p>The TESS Input Catalog (TIC) is a catalog of stars compiled for the Transiting Exoplanet Survey Satellite (TESS) mission. Each celestial target observed by TESS has a unique TIC ID representing its brightness, temperature, radius, and coordinate records.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How does ExoDetect find planet candidates?</span>
+            <span class="faq-arrow"></span>
+          </div>
+          <div class="faq-answer">
+            <p>ExoDetect cleans stellar light curves (removing outliers and cosmic ray signatures) and flattens out stellar variability. It then runs a Box Least Squares (BLS) period search algorithm to detect periodic drop-offs in brightness, which typically signal a transiting exoplanet.</p>
+          </div>
+        </div>
+
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What does the Confidence score mean?</span>
+            <span class="faq-arrow"></span>
+          </div>
+          <div class="faq-answer">
+            <p>The confidence score is a heuristic value calculated from multiple astrophysical constraints, including Signal-to-Noise Ratio (SNR), odd-even transit depth consistency, secondary eclipse limits, and transit point coverage. High scores suggest the signal is very likely to be a planet candidate rather than an eclipsing binary or stellar noise.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- 🚀 Footer -->
+      <footer class="footer">
+        <div class="footer-links">
+          <a href="#" onclick="openModal('terms-modal')">Terms & Conditions</a>
+          <span class="separator">|</span>
+          <a href="#" onclick="openModal('privacy-modal')">Privacy Policy</a>
+        </div>
+
+        <div class="social-icons">
+          <!-- GitHub -->
+          <a href="https://github.com/AbishekAnand15" target="_blank" aria-label="GitHub">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <path d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+            </svg>
+          </a>
+          
+          <!-- LinkedIn -->
+          <a href="https://linkedin.com/in/abishek-xavier-a" target="_blank" aria-label="LinkedIn">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.779-1.75-1.75s.784-1.75 1.75-1.75 1.75.779 1.75 1.75-.784 1.75-1.75 1.75zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/>
+            </svg>
+          </a>
+
+          <!-- Email -->
+          <a href="mailto:abishek.xavier@example.com" aria-label="Email">
+            <svg viewBox="0 0 24 24" width="24" height="24">
+              <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+            </svg>
+          </a>
+        </div>
+
+        <p class="copyright">&copy; 2026 ExoDetect. Powered by NASA TESS Data.</p>
+      </footer>
+
+    </div>
+  </div>
+
+  <!-- 📜 Modals Section -->
+  <div id="terms-modal" class="modal-overlay hidden" onclick="closeModalOnOverlay(event, 'terms-modal')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Terms & Conditions</h2>
+        <button class="close-btn" onclick="closeModal('terms-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Welcome to ExoDetect. By accessing this platform, you agree to comply with the following Terms and Conditions of use:</p>
+        <h3>1. Usage & License</h3>
+        <p>ExoDetect provides TESS stellar data visualization and transit analysis for educational, research, and scientific inquiry. All core planetary transit algorithms and analysis models are free to use.</p>
+        <h3>2. Attribution & Data Origin</h3>
+        <p>All data analysis outputs derive from public NASA TESS (Transiting Exoplanet Survey Satellite) datasets accessed via MAST. Proper scientific citation and credit must be attributed to NASA and the TESS mission when compiling exoplanet validation works using this software.</p>
+        <h3>3. Limitation of Liability</h3>
+        <p>Analysis metrics (e.g., confidence scores, classification verdicts) are based on statistical heuristics and Box Least Squares calculations. They do not constitute official exoplanet discoveries or guaranteed confirmation. The platform is provided "as is" without warranties of any kind.</p>
+      </div>
+    </div>
+  </div>
+
+  <div id="privacy-modal" class="modal-overlay hidden" onclick="closeModalOnOverlay(event, 'privacy-modal')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Privacy Policy</h2>
+        <button class="close-btn" onclick="closeModal('privacy-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>Your privacy is important to us. This Privacy Policy details how ExoDetect handles metadata and requests:</p>
+        <h3>1. Data Collection</h3>
+        <p>ExoDetect is a stateless analyzer. We do not store, profile, or track search inputs or TIC IDs searched on this website. All planetary queries query MAST archives in real-time and compute results dynamically.</p>
+        <h3>2. Local Storage</h3>
+        <p>The application runs directly in your browser. No cookies or tracker scripts are deployed to capture your browsing behavior.</p>
+        <h3>3. External Service Integration</h3>
+        <p>Data requests are routed to public NASA MAST endpoints. Please refer to NASA's public policy rules regarding external server connections for further data handling details.</p>
+      </div>
     </div>
   </div>
 
