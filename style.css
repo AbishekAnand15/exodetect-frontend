@@ -561,9 +561,11 @@ button:active {
 }
 
 .close-btn {
-  position: absolute;
-  top: 1.2rem;
-  right: 1.5rem;
+  position: absolute !important;
+  top: 1.2rem !important;
+  right: 1.5rem !important;
+  width: auto !important;
+  margin: 0 !important;
   background: transparent !important;
   border: none !important;
   color: #9fb4d8 !important;
