@@ -194,6 +194,8 @@
       <!-- 🚀 Footer -->
       <footer class="footer">
         <div class="footer-links">
+          <a href="#" onclick="openModal('about-modal')">About</a>
+          <span class="separator">|</span>
           <a href="#" onclick="openModal('terms-modal')">Terms & Conditions</a>
           <span class="separator">|</span>
           <a href="#" onclick="openModal('privacy-modal')">Privacy Policy</a>
@@ -229,6 +231,22 @@
   </div>
 
   <!-- 📜 Modals Section -->
+  <div id="about-modal" class="modal-overlay hidden" onclick="closeModalOnOverlay(event, 'about-modal')">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>About ExoDetect</h2>
+        <button class="close-btn" onclick="closeModal('about-modal')">&times;</button>
+      </div>
+      <div class="modal-body">
+        <p>ExoDetect is a state-of-the-art NASA TESS Exoplanet Transit Analyzer. Our mission is to democratize citizen science by providing powerful tools to explore, clean, and analyze stellar light curves directly from your browser.</p>
+        <h3>How it Works</h3>
+        <p>By entering a TESS Input Catalog (TIC) ID, ExoDetect queries real-time light curve databases from the Mikulski Archive for Space Telescopes (MAST). The system then cleans instrumental trends, detrends the data, and runs a Box Least Squares (BLS) periodogram search to detect planetary transits.</p>
+        <h3>Vetting & Verification</h3>
+        <p>Each potential signal undergoes strict physical vetting, checking for eclipsing binaries (via odd-even depth differences and secondary eclipse searches) and fitting U-shape vs. V-shape transit profiles to ensure reliable confidence scoring.</p>
+      </div>
+    </div>
+  </div>
+
   <div id="terms-modal" class="modal-overlay hidden" onclick="closeModalOnOverlay(event, 'terms-modal')">
     <div class="modal-content">
       <div class="modal-header">

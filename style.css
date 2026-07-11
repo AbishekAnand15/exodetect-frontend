@@ -523,6 +523,7 @@ button:active {
 }
 
 .modal-content {
+  position: relative;
   background: rgba(12, 20, 45, 0.95);
   border: 1px solid rgba(93, 220, 255, 0.2);
   border-radius: 20px;
@@ -560,6 +561,9 @@ button:active {
 }
 
 .close-btn {
+  position: absolute;
+  top: 1.2rem;
+  right: 1.5rem;
   background: transparent !important;
   border: none !important;
   color: #9fb4d8 !important;
