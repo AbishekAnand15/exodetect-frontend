@@ -74,33 +74,81 @@
       <section class="faq-section">
         <h2 class="section-title">Frequently Asked Questions</h2>
         
+        <!-- FAQ 1 -->
         <div class="faq-item">
           <div class="faq-question">
-            <span>What is a TIC ID?</span>
-            <span class="faq-arrow"></span>
+            <span>What is ExoDetect?</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" class="faq-chevron">
+              <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
           </div>
           <div class="faq-answer">
-            <p>The TESS Input Catalog (TIC) is a catalog of stars compiled for the Transiting Exoplanet Survey Satellite (TESS) mission. Each celestial target observed by TESS has a unique TIC ID representing its brightness, temperature, radius, and coordinate records.</p>
+            <p>ExoDetect is an advanced, web-based astrophysical analyzer designed to process transit light curves from NASA's Transiting Exoplanet Survey Satellite (TESS) mission. It cleans the data and employs algorithms to discover and validate potential exoplanetary signatures.</p>
           </div>
         </div>
 
+        <!-- FAQ 2 -->
         <div class="faq-item">
           <div class="faq-question">
-            <span>How does ExoDetect find planet candidates?</span>
-            <span class="faq-arrow"></span>
+            <span>What is a TIC ID and where do I find one?</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" class="faq-chevron">
+              <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
           </div>
           <div class="faq-answer">
-            <p>ExoDetect cleans stellar light curves (removing outliers and cosmic ray signatures) and flattens out stellar variability. It then runs a Box Least Squares (BLS) period search algorithm to detect periodic drop-offs in brightness, which typically signal a transiting exoplanet.</p>
+            <p>The TESS Input Catalog (TIC) ID is a unique numeric identifier assigned to stars monitored by the TESS spacecraft. You can find TIC IDs by searching astronomical catalogs, platforms like ExoFOP, or scientific papers. A few popular target stars to analyze are: <strong>141872132</strong>, <strong>25155310</strong>, or <strong>100100827</strong>.</p>
           </div>
         </div>
 
+        <!-- FAQ 3 -->
         <div class="faq-item">
           <div class="faq-question">
-            <span>What does the Confidence score mean?</span>
-            <span class="faq-arrow"></span>
+            <span>How does the Box Least Squares (BLS) search work?</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" class="faq-chevron">
+              <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
           </div>
           <div class="faq-answer">
-            <p>The confidence score is a heuristic value calculated from multiple astrophysical constraints, including Signal-to-Noise Ratio (SNR), odd-even transit depth consistency, secondary eclipse limits, and transit point coverage. High scores suggest the signal is very likely to be a planet candidate rather than an eclipsing binary or stellar noise.</p>
+            <p>The Box Least Squares (BLS) algorithm is a statistical technique optimized for detecting periodic, box-like brightness drops (transits). It scans a range of candidate orbital periods and transit durations to locate the strongest periodic dip in the light curve.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 4 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>What does the Confidence Score tell us?</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" class="faq-chevron">
+              <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            <p>The confidence score is computed dynamically based on the Signal-to-Noise Ratio (SNR), transit depth realism, odd-even consistency, secondary eclipse depths, and transit coverage data. A higher score represents a signal profile that strongly mirrors a real exoplanet candidates and has low false-positive likelihood.</p>
+          </div>
+        </div>
+
+        <!-- FAQ 5 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>How can we identify Eclipsing Binaries or False Positives?</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" class="faq-chevron">
+              <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            <p>Eclipsing binaries (two stars orbiting each other) mimic planetary transits but have distinct signatures. ExoDetect identifies them by measuring depth differences between alternating (odd and even) transits, and by searching for a secondary eclipse (a shallow secondary dip when the smaller star goes behind the larger star).</p>
+          </div>
+        </div>
+
+        <!-- FAQ 6 -->
+        <div class="faq-item">
+          <div class="faq-question">
+            <span>Where is the stellar data retrieved from?</span>
+            <svg viewBox="0 0 24 24" width="20" height="20" class="faq-chevron">
+              <path fill="currentColor" d="M7.41 8.59L12 13.17l4.59-4.58L18 10l-6 6-6-6 1.41-1.41z"/>
+            </svg>
+          </div>
+          <div class="faq-answer">
+            <p>Stellar light curves are queried and downloaded in real-time from the Mikulski Archive for Space Telescopes (MAST), which hosts public space science data products from Kepler, K2, and TESS telescopes funded by NASA.</p>
           </div>
         </div>
       </section>
