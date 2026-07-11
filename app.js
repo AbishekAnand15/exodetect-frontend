@@ -1,7 +1,7 @@
 // Dynamic backend API selection: fallback to localhost for local development, or use the Vercel deployment URL.
 const BACKEND_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
   ? 'http://localhost:8000'
-  : 'https://exodetect-backend.vercel.app'; // Replace with actual Vercel backend URL if custom domain is used
+  : 'https://exodetect-backend-iota.vercel.app';
 
 let rawChart = null;
 let foldedChart = null;
