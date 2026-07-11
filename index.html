@@ -39,6 +39,14 @@
       <section class="controls">
         <input id="tic" type="number" placeholder="Enter TIC ID" />
         <button onclick="analyze()">Analyze</button>
+        <div class="quick-select">
+          <span class="quick-select-label">Quick Select Target:</span>
+          <div class="pills">
+            <button class="pill" onclick="selectTarget(141872132)">Candidate (TIC 141872132)</button>
+            <button class="pill" onclick="selectTarget(25155310)">Earth-Sized (TIC 25155310)</button>
+            <button class="pill" onclick="selectTarget(100100827)">Binary Star (TIC 100100827)</button>
+          </div>
+        </div>
       </section>
 
       <div id="output"></div>
@@ -59,6 +67,24 @@
         <div class="metric-card">
           <div class="label">Confidence</div>
           <div class="value highlight" id="m-confidence"></div>
+        </div>
+      </div>
+
+      <!-- 🪐 Dynamic Transit Visualizer -->
+      <div id="transit-visualizer" class="visualizer-box hidden">
+        <h3 class="visualizer-title">Transit Scale Visualizer</h3>
+        <p class="visualizer-desc">Dynamically scaled planet transit based on detected depth (Radius ratio &approx; &radic;depth)</p>
+        <div class="space-sandbox">
+          <div class="stellar-system">
+            <div class="star-glow"></div>
+            <div class="host-star"></div>
+            <div class="planet-orbit">
+              <div class="candidate-planet" id="vis-planet"></div>
+            </div>
+          </div>
+        </div>
+        <div class="vis-stats" id="vis-stats-text">
+          Planet-to-Star Radius Ratio (R<sub>p</sub> / R<sub>s</sub>): <span class="highlight" id="vis-ratio"></span>
         </div>
       </div>
       

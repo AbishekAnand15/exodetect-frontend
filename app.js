@@ -19,6 +19,7 @@ function binData(x, y, binSize = 10) {
   return { bx, by };
 }
 async function analyze() {
+  document.getElementById("transit-visualizer")?.classList.add("hidden");
     
 if (rawChart) {
     rawChart.destroy();
@@ -70,6 +71,25 @@ document.getElementById("m-snr").innerText =
 
 document.getElementById("m-confidence").innerText =
   data.confidence.toFixed(1) + "%";
+
+// Update and show dynamic transit visualizer
+const ratio = Math.sqrt(data.depth);
+const visPlanet = document.getElementById("vis-planet");
+const visRatio = document.getElementById("vis-ratio");
+const visualizerBox = document.getElementById("transit-visualizer");
+
+if (visPlanet && visRatio && visualizerBox) {
+  // Base diameter of star is 80px
+  // Planet diameter is proportional to sqrt(depth)
+  // Clamp between 6px (min visible) and 50px (max star eclipse)
+  const diameter = Math.max(6, Math.min(50, 80 * ratio));
+  visPlanet.style.width = diameter + "px";
+  visPlanet.style.height = diameter + "px";
+  visPlanet.style.top = `-${diameter / 2}px`;
+  
+  visRatio.innerText = ratio.toFixed(4);
+  visualizerBox.classList.remove("hidden");
+}
 
 // Keep interpretation text
 output.innerHTML = `
@@ -363,6 +383,20 @@ function closeModal(modalId) {
 function closeModalOnOverlay(event, modalId) {
   if (event.target.id === modalId) {
     closeModal(modalId);
+  }
+}
+
+// ---------- QUICK SELECT TARGETS ----------
+function selectTarget(ticId) {
+  const ticInput = document.getElementById("tic");
+  if (ticInput) {
+    ticInput.value = ticId;
+    // We trigger the global analyze wrapper if defined, or original analyze
+    if (window.analyze) {
+      window.analyze();
+    } else {
+      analyze();
+    }
   }
 }
 
