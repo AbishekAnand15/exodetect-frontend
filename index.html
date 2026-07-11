@@ -37,8 +37,10 @@
 
 
       <section class="controls">
-        <input id="tic" type="number" placeholder="Enter TIC ID" />
-        <button onclick="analyze()">Analyze</button>
+        <div class="search-form">
+          <input id="tic" type="number" placeholder="Enter TIC ID" />
+          <button onclick="analyze()">Analyze</button>
+        </div>
         <div class="quick-select">
           <span class="quick-select-label">Quick Select Target:</span>
           <div class="pills">
@@ -49,7 +51,7 @@
         </div>
       </section>
 
-      <div id="output"></div>
+      <div id="output" class="hidden"></div>
 
       <div id="metrics" class="metrics hidden">
         <div class="metric-card">

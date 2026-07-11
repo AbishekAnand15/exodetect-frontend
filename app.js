@@ -34,9 +34,7 @@ if (rawChart) {
   const tic = document.getElementById("tic").value;
   const output = document.getElementById("output");
 
-  output.innerText = "Analyzing TESS data…";
-
-
+  output.classList.remove("hidden");
   output.innerText = "Analyzing TESS data…";
 
   try {
