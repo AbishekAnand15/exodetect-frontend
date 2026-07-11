@@ -75,6 +75,12 @@ document.getElementById("m-star-radius").innerText =
 document.getElementById("m-planet-radius").innerText =
   data.planet_radius.toFixed(2) + " R\u2295";
 
+const profileVal = document.getElementById("m-profile");
+if (profileVal) {
+  profileVal.innerText = data.is_v_shape ? "V-Shape (Binary)" : "U-Shape (Planet)";
+  profileVal.style.color = data.is_v_shape ? "#ff5252" : "#00e676";
+}
+
 document.getElementById("m-confidence").innerText =
   data.confidence.toFixed(1) + "%";
 
