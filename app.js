@@ -69,6 +69,12 @@ document.getElementById("m-depth").innerText =
 document.getElementById("m-snr").innerText =
   data.snr.toFixed(2);
 
+document.getElementById("m-star-radius").innerText =
+  data.star_radius.toFixed(2) + " R\u2299";
+
+document.getElementById("m-planet-radius").innerText =
+  data.planet_radius.toFixed(2) + " R\u2295";
+
 document.getElementById("m-confidence").innerText =
   data.confidence.toFixed(1) + "%";
 
