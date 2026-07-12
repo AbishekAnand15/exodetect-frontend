@@ -73,6 +73,15 @@ document.getElementById("m-star-radius").innerText =
 document.getElementById("m-planet-radius").innerText =
   data.planet_radius.toFixed(2) + " R\u2295";
 
+document.getElementById("m-semi-major").innerText =
+  data.semi_major_axis.toFixed(4) + " AU";
+
+document.getElementById("m-eq-temp").innerText =
+  Math.round(data.equilibrium_temp) + " K";
+
+document.getElementById("m-planet-density").innerText =
+  data.planet_density.toFixed(2) + " g/cm\u00B3";
+
 const profileVal = document.getElementById("m-profile");
 if (profileVal) {
   profileVal.innerText = data.is_v_shape ? "V-Shape (Binary)" : "U-Shape (Planet)";
@@ -110,8 +119,8 @@ const interpretationVal = isAi ? data.ai_interpretation : data.interpretation;
 if (isAi) {
   output.classList.add("ai-active");
   output.innerHTML = `
-    <strong>Status (AI Enhanced ✨):</strong> ${verdictVal}<br/><br/>
-    <strong>Interpretation (AI Scientific Analysis 🪐):</strong><br/>
+    <strong>Status (AI-Enhanced):</strong> ${verdictVal}<br/><br/>
+    <strong>Interpretation (AI Scientific Analysis):</strong><br/>
     ${interpretationVal}
   `;
 } else {
