@@ -1,5 +1,5 @@
 // Dynamic backend API selection: fallback to localhost for local development, or use the Vercel deployment URL.
-const BACKEND_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1'
+const BACKEND_URL = window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1' || window.location.protocol === 'file:' || !window.location.hostname
   ? 'http://localhost:8000'
   : 'https://exodetect-backend-iota.vercel.app';
 
@@ -102,20 +102,35 @@ if (visPlanet && visRatio && visualizerBox) {
 }
 
 // Keep interpretation text
-output.innerHTML = `
-  <strong>Status:</strong> ${data.verdict}<br/><br/>
-  <strong>Interpretation:</strong><br/>
-  ${data.interpretation}
-`;
+const isAi = data.ai_used;
+const verdictVal = isAi ? data.ai_verdict : data.verdict;
+const confidenceVal = isAi ? data.ai_confidence : data.confidence;
+const interpretationVal = isAi ? data.ai_interpretation : data.interpretation;
+
+if (isAi) {
+  output.classList.add("ai-active");
+  output.innerHTML = `
+    <strong>Status (AI Enhanced ✨):</strong> ${verdictVal}<br/><br/>
+    <strong>Interpretation (AI Scientific Analysis 🪐):</strong><br/>
+    ${interpretationVal}
+  `;
+} else {
+  output.classList.remove("ai-active");
+  output.innerHTML = `
+    <strong>Status:</strong> ${verdictVal}<br/><br/>
+    <strong>Interpretation:</strong><br/>
+    ${interpretationVal}
+  `;
+}
 
 const confEl = document.getElementById("m-confidence");
-confEl.innerText = data.confidence.toFixed(1) + "%";
+confEl.innerText = confidenceVal.toFixed(1) + "%";
 
 confEl.classList.remove("confidence-high", "confidence-mid", "confidence-low");
 
-if (data.confidence >= 80) {
+if (confidenceVal >= 80) {
   confEl.classList.add("confidence-high");
-} else if (data.confidence >= 50) {
+} else if (confidenceVal >= 50) {
   confEl.classList.add("confidence-mid");
 } else {
   confEl.classList.add("confidence-low");
